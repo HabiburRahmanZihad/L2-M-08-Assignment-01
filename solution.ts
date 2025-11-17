@@ -95,3 +95,29 @@ const getUniqueValues = (
 
   return result;
 };
+
+
+
+
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+const calculateTotalPrice = (products: Product[]): number => {
+
+  if (products.length === 0) return 0;
+
+  return products.reduce((total, product) => {
+    const basePrice = product.price * product.quantity;
+
+    const finalPrice =
+      product.discount !== undefined
+        ? basePrice - (basePrice * product.discount) / 100
+        : basePrice;
+
+    return total + finalPrice;
+  }, 0);
+};
