@@ -9,3 +9,14 @@ const formatValue = (value: TypeOfValue): string | number | boolean => {
     return !value;
   }
 };
+
+type TypeOfLength = string | any[];
+
+const getLength = (value: TypeOfLength): number => {
+  if (typeof value === 'string') {
+    return value.length;
+  } else if (Array.isArray(value)) {
+    return value.length;
+  }
+  return 0;
+};
