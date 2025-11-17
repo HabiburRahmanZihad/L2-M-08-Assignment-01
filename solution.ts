@@ -72,3 +72,26 @@ const printBookDetails = (book: Book): void => {
     `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${available}`
   );
 };
+
+
+const getUniqueValues = (
+  arr1: (string | number)[],
+  arr2: (string | number)[]
+): (string | number)[] => {
+
+  const result: (string | number)[] = [];
+
+  for (const value of arr1) {
+    if (!result.includes(value)) {
+      result.push(value);
+    }
+  }
+
+  for (const value of arr2) {
+    if (!result.includes(value)) {
+      result.push(value);
+    }
+  }
+
+  return result;
+};
